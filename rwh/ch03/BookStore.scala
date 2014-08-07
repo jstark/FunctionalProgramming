@@ -10,3 +10,20 @@ type ReviewBody = String
 case class BookReview(val book: Book, val customerID: CustomerID, val review: ReviewBody)
 val review = BookReview(book, 12345, "A nice book!")
 println(review)
+
+// add credit card info
+type CardHolder = String
+type CardNumber = String
+type Address = List[String]
+
+trait BillingInfo
+case class CreditCard(
+	val cardNumber: CardNumber, 
+	val cardHolder: CardHolder, 
+	val address: Address) extends BillingInfo
+
+object CashOnDelivery extends BillingInfo
+case class Invoice(val customerID: CustomerID) extends BillingInfo
+
+val billingInfo = CreditCard("0000-0000-0000-0000", "Me", List("A", "B"))
+println(billingInfo)
