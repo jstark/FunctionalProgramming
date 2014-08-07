@@ -6,6 +6,10 @@ bookID      (Book id title authors) = id
 bookTitle   (Book id title authors) = title
 bookAuthors (Book id title authors) = authors
 
+nicerBookID			(Book id _     _      ) = id
+nicerBookTitle		(Book _  title _      ) = title
+nicerBookAuthors	(Book _  _     authors)	= authors
+
 -- book review
 -- synonyms
 type CustomerID = Integer
