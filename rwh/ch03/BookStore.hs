@@ -2,4 +2,10 @@
 data BookInfo = Book Integer String [String]
                 deriving Show
 
+-- synonyms
+type CustomerID = Integer
+type ReviewBody = String
+
+data BookReview = BookReview BookInfo CustomerID ReviewBody
+
 main = putStrLn $ show $ Book 9780135072455 "Algebra of Programming" ["Richard Bird", "Oege de Moor"]
