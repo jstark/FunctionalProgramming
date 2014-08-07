@@ -2,6 +2,10 @@
 data BookInfo = Book Integer String [String]
                 deriving Show
 
+bookID      (Book id title authors) = id
+bookTitle   (Book id title authors) = title
+bookAuthors (Book id title authors) = authors
+
 -- book review
 -- synonyms
 type CustomerID = Integer
