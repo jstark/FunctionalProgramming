@@ -12,8 +12,9 @@ nicerBookAuthors	(Book _  _     authors)	= authors
 
 -- book review
 -- synonyms
-type CustomerID = Integer
-type ReviewBody = String
+type CustomerID   = Integer
+type CustomerName = String
+type ReviewBody   = String
 
 data BookReview = BookReview BookInfo CustomerID ReviewBody
 
@@ -27,4 +28,20 @@ data BillingInfo = CreditCard CardNumber CardHolder Address
                  | Invoice CustomerID
                  deriving Show
 
-main = putStrLn $ show $ Book 9780135072455 "Algebra of Programming" ["Richard Bird", "Oege de Moor"]
+-- records
+data Customer = Customer {
+	  customerID      :: CustomerID 
+	, customerName    :: CustomerName
+	, customerAddress :: Address
+} deriving Show
+
+customer1 = Customer  1 "John Fourkiotis" ["55133", "Amazonon 6", "Kalamaria"]
+customer2 = Customer {
+	customerID = 1,
+	customerName = "Katerina Fourkioti",
+	customerAddress = ["55133", "Amazonon 6", "Kalamria"]
+}
+
+main = do
+		putStrLn $ show customer1
+		putStrLn $ show customer2
